@@ -38,11 +38,10 @@ def print_number_in_words(int)
     if int == 0
       return "zero"
     elsif int.between?(1,99)  && int == num
-      return  "#{name}" 
-    elsif int.between?(10,99) && int/num > 0
-      return "#{name} " + print_number_in_words(int%num)
+      return  "#{name}"       
     elsif int/num > 0
-      return print_number_in_words(int/num) + " #{name} " if int%num == 0
+      return "#{name} " + print_number_in_words(int%num) if int.between?(10,99)
+      return print_number_in_words(int/num) + " #{name}" if int%num == 0
       return print_number_in_words(int/num) + " #{name} " + print_number_in_words(int%num)
     end
   end
@@ -52,3 +51,5 @@ words_to_numbers = NumbersToWords.new
 puts words_to_numbers.print_number_in_words(1000)
 puts words_to_numbers.print_number_in_words(20)
 puts words_to_numbers.print_number_in_words(5623)
+puts words_to_numbers.print_number_in_words(73)
+
